@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build: .  # Build the image from the Dockerfile in the current directory
+    ports:
+      - "8000:8000"  # Map port 8000 of the container to port 8000 on the host machine
+    depends_on:
+      - redis  # The web service depends on Redis being up
+
+  redis:
+    image: "redis:alpine"  # Use the official Redis image with Alpine Linux (lightweight)
